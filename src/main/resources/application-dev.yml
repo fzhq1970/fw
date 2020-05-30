@@ -1,0 +1,38 @@
+server:
+  port: 5000
+  address: 127.0.0.1
+
+spring:
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:5432/poll
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: org.postgresql.Driver
+    username: poll
+    password: Hjkl1234
+    hikari:
+    initialization-mode: always
+  jpa:
+    hibernate:
+      ddl-auto: update
+  redis:
+    database: 0
+    host: localhost
+    port: 6379
+    key:
+      login:
+        token:
+          path: login:token:jwt
+
+const:
+  file:
+    upload:
+      path: E:/temp/upload
+      maxSize: 10240000
+jwt:
+  jwtHeader: JWT
+  authCode: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9
+  exp: 120
+  iss: www.study.com
+  sub: www.study.com
+  aud: www.study.com
+  cid: CID1234567

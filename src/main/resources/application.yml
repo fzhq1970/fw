@@ -1,0 +1,55 @@
+server:
+  servlet:
+    context-path: /fw
+    application-display-name: 学习springBoot poll
+    session:
+      cookie:
+        name: USERSESSION
+
+spring:
+  profiles:
+    active: dev
+  activemq:
+    in-memory: true
+    pool:
+      idle-timeout: 30000
+      enabled: true
+      max-connections: 10
+  security:
+    oauth2:
+      client:
+        provider:
+    user:
+      name: admin
+      password: admin
+
+  thymeleaf:
+    suffix: .html
+    prefix: classpath:/templates/
+    encoding: UTF-8
+    check-template: true
+    cache: false
+    servlet:
+      content-type: text/html
+    mode: html5
+
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  type-aliases-package: com.ccb.ha.**.entity
+  global-config:
+    db-config:
+      id-type: input
+  configuration:
+    jdbc-type-for-null: null
+    cache-enabled: false
+    map-underscore-to-camel-case: false
+
+const:
+  file:
+    upload:
+      maxSize: 10240000
+      type: gif|jpeg|pdf|xls|xlsx|zip|rar|gz|7z
+  cors:
+    whiteList: http://localhost:80|http://localhost:8080|http://localhost:6080|http://localhost:9080
+    blackList:
